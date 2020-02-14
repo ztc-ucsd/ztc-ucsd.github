@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html>
+<head>
+   <title>Food Group</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="/js/javascript.js"></script>
+   <script src="/js/shoppingList.js"></script>
+   <link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+   <header id="main-header">
+      <div class="container">
+         <h1><a href="#">Shopping List</a></h1>
+      </div>
+   </header>
+
+   <section>
+      <div id="shopping" class="container">
+         {{#each members}}
+         <!-- Need to change so doesnt link names to items 
+         <h1 id="sections"><a href="#" id="{{id}}">{{memberName}}</a></h1>-->
+         <a class="item"></a>
+         {{/each}}
+      </div>
+   </section>
+
+   <div class="container">
+      <ul>
+         <li><a href="sections">Sections</a></li>
+         <li><a href="shoppingList">Shopping List</a></li>
+         <li><a href="group">Group</a></li>
+      </ul>
+   </div>
+
+   <button id="addSectionbtn">+</button>
+
+   <!--Add section popup-->
+   <div id="myModal" class="modal">
+      <div class="modal-content">
+         <span class="close">&times;</span>
+         <header id="addItem-header">Add Item</header>
+         <form id="addItem" method="get"> <!--removed action="/addItem"-->
+            <label for="itemName">Item:</label><br />
+            <input type="text" placeholder="Item Name" name="itemName" /><br />
+            <label for="member">Member:</label><br />
+            <select name="member">
+               {{#each members}}
+               <option value="{{memberName}}">{{memberName}}</option>
+               {{/each}}
+            </select><br />
+            <!--<input type="submit" id="confirmItembtn" value="Add Item" />-->
+         </form>
+         <button id="confirmItembtn">Add Item</button>
+      </div>
+
+   </div>
+
+</body>
+</html>
